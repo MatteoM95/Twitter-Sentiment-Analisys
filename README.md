@@ -1,11 +1,11 @@
 # Datascience
 This project is the final project for the exam `Data Science Lab: process and methods (2021/22)`. The overall score achieved in the final competition was 0.853, which outperformed the given baseline 0.750.
 
-# ABSTRACT
+## ABSTRACT
 In this report we introduce a possible approach to predict the sentiment associated with a tweet, based on the content of its text. The proposed solution infers the tweets’ sentiment by means of a classification model, that gives overall satisfactory results. In this paper the classification technique used
 are logistic regression and linearSVC.
 
-# PROBLEM OVERVIEW
+## PROBLEM OVERVIEW
 The proposed project is a classification problem on a dataset of tweets. For each tweet the following information is provided:
 - *Id*: a numerical identifier of the tweet.
 - *date*: the date in which the tweet was published.
@@ -14,9 +14,13 @@ The proposed project is a classification problem on a dataset of tweets. For eac
 - *text*: the text of the tweet.
 - *sentiment*: indicator of whether it’s positive (1) or negative (0).
 A few samples of tweets text from the dataset and relative sentiment are shown in Table 1. As we can see the quality of writing is quite low.
-![Table 1](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Images/TableI.png "Table 1")
-![Fig. 1](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Images/WordCloudNegative.svg "Fig. 2")
-![Fig. 2](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Images/WordCloudPositive.svg "Fig. 2")
+
+<div align="center">
+ <img src="https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Images/TableI.png height="200px">
+ <br>
+ <img src="https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Images/WordCloudNegative.svg height="200px">
+ <img src="https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Images/WordCloudPositive.svg height="200px">
+</div>
 
 The data-set is divided into two parts:
 - a *development set*, containing 224994 entries for which, in addition to the previously mentioned features, the sentiment of the tweet is also known.
@@ -29,3 +33,5 @@ Moreover, the wordclouds shown in Figures 1 and 2 give us a visual representatio
 
 ![Fig. 3](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Images/DistributionOfSentiment.svg "Fig. 3")
 ![Fig. 4](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Images/dateDistributionHour.svg "Fig. 4")
+
+##
