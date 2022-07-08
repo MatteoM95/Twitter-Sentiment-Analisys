@@ -95,7 +95,7 @@ Since there seems to be little room for improvement, some future improvements sh
 - Since both LinearSVC and LogisticRegression achieved similar results, it would be useful to find a third good technique to ensemble a voting classifier.
 
 ## Code and paper
-The complete report is available [here](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Twitter_Sentiment_Analysis_Report.pdf)
+The complete report is available [here](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Twitter_Sentiment_Analysis_Report.pdf). 
 The code is available [here](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Twitter_Sentiment_Analisys.ipynb)
 
 ### Contributors
