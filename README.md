@@ -14,12 +14,13 @@ The proposed project is a classification problem on a dataset of tweets. For eac
 - *text*: the text of the tweet.
 - *sentiment*: indicator of whether it’s positive (1) or negative (0).
 A few samples of tweets text from the dataset and relative sentiment are shown in Table 1. As we can see the quality of writing is quite low.
+Moreover, the wordclouds shown in Figures 1 and 2 give us a visual representation of the word distribution of positive and negative sentiment tweets.
 
 <div align="center">
- <img src="https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Images/TableI.png height="200px">
+ <img src='Images/TableI.png' height="200px">
  <br>
- <img src="https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Images/WordCloudNegative.svg height="200px">
- <img src="https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Images/WordCloudPositive.svg height="200px">
+ <img src='Images/WordCloudNegative.svg' height="200px">
+ <img src='Images/WordCloudPositive.svg' height="200px">
 </div>
 
 The data-set is divided into two parts:
@@ -28,10 +29,11 @@ The data-set is divided into two parts:
 Let us now focus our attention on the development set.
 In Figure 3, the distribution of the sentiment feature is shown and we can observe that there are more positive tweets
 overall implying that the dataset is unbalanced.
-One more thing that is worth mentioning is the distribution of the sentiment over the date attribute. All the tweets in the dataset are posted in a period between April and June 2009. Initially, we assumed that the date did not provide valuable information in predicting the sentiment of tweets, but as shown in figure 4, it plays an important role. For instance, people tend to leave more positive comments during specific hours in a day. Also, different days of week and month give us different portions of negative and positive tweets which can be explained by the general mood of society or important events.
-Moreover, the wordclouds shown in Figures 1 and 2 give us a visual representation of the word distribution of positive and negative sentiment tweets.
+One more thing that is worth mentioning is the distribution of the sentiment over the date attribute. All the tweets in the dataset are posted in a period between April and June 2009. Initially, we assumed that the date did not provide valuable information in predicting the sentiment of tweets, but as shown in figure 4, it plays an important role. For instance, people tend to leave more positive comments during specific hours in a day. Also, different days of week and month give us different portions of negative and positive tweets which can be explained by the general mood of society or important events. Further analyzing the development dataset, it can be seen that there are roughly 270 tweet duplicate ids. We can also note that all of the tweets come from 10,647 unique users and that approximately 1888 tweets have the same text, implying that they could be retweets. Acknowledging that all of the tweets come from a relatively small number of people is important, because it allows our model to identify users who are more likely to post a positive or negative tweet.
 
-![Fig. 3](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Images/DistributionOfSentiment.svg "Fig. 3")
-![Fig. 4](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Images/dateDistributionHour.svg "Fig. 4")
+<div align="center">
+ <img src='Images/DistributionOfSentiment.svg' height="600px" width="200px">
+ <img src='Images/dateDistributionHour.svg' height="200px">
+</div>
 
-##
+## PROPOSED APPROACH
