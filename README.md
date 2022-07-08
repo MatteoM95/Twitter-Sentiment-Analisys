@@ -94,7 +94,7 @@ Since there seems to be little room for improvement, some future improvements sh
 - the preprocessing step could be improved by using a list of stop words specifically designed. The top ten most correlated words for each sentiment are provided in Tables 4 and 5, which could be useful for the selection of custom stopwords. Also a custom lemmatizer and tokenizer should be considered.
 - Since both LinearSVC and LogisticRegression achieved similar results, it would be useful to find a third good technique to ensemble a voting classifier.
 
-##Code and paper
+## Code and paper
 The complete report is available [here](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Twitter_Sentiment_Analysis_Report.pdf)
 The code is available [here](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Twitter_Sentiment_Analisys.ipynb)
 
