@@ -96,6 +96,7 @@ Since there seems to be little room for improvement, some future improvements sh
 
 ## Code and paper
 The complete report is available [here](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Twitter_Sentiment_Analysis_Report.pdf). 
+
 The code is available [here](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Twitter_Sentiment_Analisys.ipynb)
 
 ### Contributors
