@@ -69,13 +69,32 @@ Other classifiers like Random Forest and MultinomialNB were tested, but they wer
 resulted in a lengthy computation.
 
 #### Hyperparameters tuning
-Hyperparameter tuning is a vital step in finding the best configuration of the parameters of our classifier. To train and evaluate the model, the available development set is split into a train set and a test set. The train set is 80% of the development set size, the test set is the remaining 20%. The performance of the model will be determined by calculating the F-measure f1_macro on the sentiment feature. The first main hyperparameter that needs to be tuned to improve the accuracy of the model is ngram range in the TfidfVectorizer. By changing the ngram range parameters, we can decide whether to consider or not single words and longer expressions. To perform this hyperparameters tuning, we initially set a classifier to default parameter and select the optimal ngram range parameters for the TfidfVectorizer. Next, we tune the parameter for both LinearSVC and LogisticRegression. The different values tested are shown in Table 2.
+Hyperparameter tuning is a vital step in finding the best configuration of the parameters of our classifier. To train and evaluate the model, the available development set is split into a train set and a test set. The train set is 80% of the development set size, the test set is the remaining 20%. The performance of the model will be determined by calculating the F-measure f1_macro on the sentiment feature. The first main hyperparameter that needs to be tuned to improve the accuracy of the model is ngram range in the TfidfVectorizer. By changing the ngram range parameters, we can decide whether to consider or not single words and longer expressions. To perform this hyperparameters tuning, we initially set a classifier to default parameter and select the optimal ngram range parameters for the TfidfVectorizer. Next, we tune the parameter for both LinearSVC and LogisticRegression. The different values tested are shown in the following table.
+
+| **Model**  | **Hyperparameters** | **Values**  | 
+| ------------- | ------------- | ------------- | 
+| LinearSVC | C <br /> tol |  [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1, 2] <br /> [0.01, 0.001, 0.0001, 0.00001] | 
+| Logistic Regression |  C <br /> tol | [1.0, 3.0, 5.0, 6.0, 7.0, 8.0, 10.0, 12.0] <br /> [0.001, 0.0001] |
+
 All of the aforementioned hyperparameter searches were done using a 5-fold Cross Validation Grid Search that returns the optimal hyperparameter configuration for each model, which is then compared to unseen data from the test set.
 
 ## Results
 From the Hyperparameter tuning, the ngram for tfidfVectorizer selected is (1, 3), which means that the model prefers a contiguous sequence of 1 to 3 words. Due to computational limit, only a limited number of parameters were tested in Grid Search. So a more detailed C value tuning is performed to
-find the best one for both classifiers. The further fine tuning is summarized in Figure 5 and in Figure 6. At the end in table 3, the best hyperparameters for both classifiers are summarized. We can notice that LinearSVC performed slightly better in local than Logistic Regression, so we use LinearSVC for final evaluation. Finally using 80% of the development set as our train set and the remaining as the test set, our pipeline can
-build a model which achieves a 0.852 f1macro score in private using LinearSVC. We can now predict the sentiment values of the evaluation set. After submitting our predicted sentiment values, we achieved the same result on public leaderboard, which significantly outperforms the given baseline score of 0.753.
+find the best one for both classifiers. The further fine tuning is summarized in Figure 5 and in Figure 6.
+
+<div align="center">
+ <img src='Images/C_valueLinearSVC.svg' height="200px">
+ <img src='Images/C_valueLogisticRegression.svg' height="200px">
+</div>
+
+At the end in table 3, the best hyperparameters for both classifiers are summarized. We can notice that LinearSVC performed slightly better in local than Logistic Regression, so we use LinearSVC for final evaluation. 
+
+| **Model**  | **Hyperparameters** | **Values**  | **LocalF1**  | **PublicF1**  | 
+| ------------- | ------------- | ------------- | ------------- | ------------- | 
+| LinearSVC | C <br /> tol |  0.4 <br /> 0.01 | 0.852 | 0.853 |
+| Logistic Regression |  C <br /> tol |  8 <br /> 0.001 | 0.852 | 0.852 |
+
+Finally using 80% of the development set as our train set and the remaining as the test set, our pipeline can build a model which achieves a 0.852 f1macro score in private using LinearSVC. We can now predict the sentiment values of the evaluation set. After submitting our predicted sentiment values, we achieved the same result on public leaderboard, which significantly outperforms the given baseline score of 0.753.
 For comparison, a simpler approach with minimal preprocessing and hyperparameter tuning can be described as follows:
 1. The date column is split in hour, weekday, day, month. Then with user column are encoded using the One Hot Encoding Technique.
 2. Remove link and @ before user and punctuation from the tweet text.
