@@ -13,11 +13,13 @@ This project is the final project for the exam `Data Science Lab: process and me
 - [Contributors](#Contributors)
 
 <a name="Abstract"/>
+
 ## Abstract
 In this report we introduce a possible approach to predict the sentiment associated with a tweet, based on the content of its text. The proposed solution infers the tweets’ sentiment by means of a classification model, that gives overall satisfactory results. In this paper the classification technique used
 are logistic regression and linearSVC.
 
 <a name="Problemoverview"/>
+
 ## Problem overview
 The proposed project is a classification problem on a dataset of tweets. For each tweet the following information is provided:
 - *Id*: a numerical identifier of the tweet.
@@ -51,6 +53,7 @@ One more thing that is worth mentioning is the distribution of the sentiment ove
 </div>
 
 <a name="Proposedapproach"/>
+
 ## Proposed approach
 #### Preprocessing
 The first step is to remove the columns flag and ids, which provide no valuable information for our purpose. It might also be worth mentioning that our dataset does not have any missing values.
@@ -67,6 +70,7 @@ In contrast stop words are not removed since it had a negative effect on accurac
 2. `Date and user encoding`: Some categorical features are provided in the dataset. First, Date is split in hour, weekday, day, month and year. Since year has the same value for all tweets, it will be discarded. Then these new features are processed by applying one hot encoding along with user.
 
 <a name="Modelselection"/>
+
 #### Model selection
 The following Scikit-learn’s classifiers have been tested:
 1. `Logistic Regression`: it is a statistical-based classifier that is mostly used for the analysis of binary data in which one or more variables are
@@ -84,6 +88,7 @@ Other classifiers like Random Forest and MultinomialNB were tested, but they wer
 resulted in a lengthy computation.
 
 <a name="Hyperparameterstuning"/>
+
 #### Hyperparameters tuning
 Hyperparameter tuning is a vital step in finding the best configuration of the parameters of our classifier. To train and evaluate the model, the available development set is split into a train set and a test set. The train set is 80% of the development set size, the test set is the remaining 20%. The performance of the model will be determined by calculating the F-measure f1_macro on the sentiment feature. The first main hyperparameter that needs to be tuned to improve the accuracy of the model is ngram range in the TfidfVectorizer. By changing the ngram range parameters, we can decide whether to consider or not single words and longer expressions. To perform this hyperparameters tuning, we initially set a classifier to default parameter and select the optimal ngram range parameters for the TfidfVectorizer. Next, we tune the parameter for both LinearSVC and LogisticRegression. The different values tested are shown in the following table.
 
@@ -95,6 +100,7 @@ Hyperparameter tuning is a vital step in finding the best configuration of the p
 All of the aforementioned hyperparameter searches were done using a 5-fold Cross Validation Grid Search that returns the optimal hyperparameter configuration for each model, which is then compared to unseen data from the test set.
 
 <a name="Results"/>
+
 ## Results
 From the Hyperparameter tuning, the ngram for tfidfVectorizer selected is (1, 3), which means that the model prefers a contiguous sequence of 1 to 3 words. Due to computational limit, only a limited number of parameters were tested in Grid Search. So a more detailed C value tuning is performed to
 find the best one for both classifiers. The further fine tuning is summarized in Figure 5 and in Figure 6.
@@ -119,6 +125,7 @@ For comparison, a simpler approach with minimal preprocessing and hyperparameter
 The f1 score achieved by this simple model prediction is 0.830, which is still better than the baseline score but significantly lower than the f1 score obtained by our pipeline.
 
 <a name="Discussion"/>
+
 ## Discussion
 The obtained score of 0.852 is considerably higher than the proposed 0.753 baseline. A few approaches that were considered but did not significantly improve the score are listed here:
 - After computing the tweet text length of each entry, a correlation index of -0.036 was found between the text length and the sentiment. A model that included this attribute was tested and achieved a public score of 0.852, so no changes on the result. Another feature considered was counting the capital letters in each tweet. Also in this case there is a low correlation of 0.025 and the score at the end does not change.
@@ -132,12 +139,14 @@ Since there seems to be little room for improvement, some future improvements sh
 - Since both LinearSVC and LogisticRegression achieved similar results, it would be useful to find a third good technique to ensemble a voting classifier.
 
 <a name="Codeandpaper"/>
+
 ## Code and report
 The complete report is available [here](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Twitter_Sentiment_Analysis_Report.pdf). 
 
 The code is available [here](https://github.com/MatteoM95/Twitter-Sentiment-Analisys/blob/master/Twitter_Sentiment_Analisys.ipynb)
 
 <a name="Contributors"/>
+
 ### Contributors
 
 <a href="https://github.com/MatteoM95/Twitter-Sentiment-Analisys/graphs/contributors">
