@@ -151,4 +151,5 @@ The code is available [here](https://github.com/MatteoM95/Twitter-Sentiment-Anal
 
 <a href="https://github.com/MatteoM95/Twitter-Sentiment-Analisys/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=MatteoM95/Twitter-Sentiment-Analisys" />
+  <img src="https://contrib.rocks/image?repo=PouyaRivandi/Data-Science-Lab-MiniProjects-Politos" />
 </a>
